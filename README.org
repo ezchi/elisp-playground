@@ -1,0 +1,40 @@
+#+TITLE: Readme
+
+
+
+* Functions
+
+** sleep-only
+This function will only sleep for while to try things like asynchronous or thread.
+#+name: sleep-only-func
+#+begin_src emacs-lisp
+(defun sleep-only (&optional n)
+  "Sleep for N seconds. By default it will sleep 10 seconds."
+  (sleep-for (or n 10)))
+#+end_src
+
+#+RESULTS:
+: sleep-only
+
+Try run the =sleep-only= function
+#+begin_src emacs-lisp :async :results output :noweb yes
+;; (defun sleep-only (&optional n)
+;;   "Sleep for N seconds. By default it will sleep 10 seconds."
+;;   (sleep-for (or n 10)))
+
+<<sleep-only-func>>
+
+(print (format-time-string "%T"))
+(sleep-only 2)
+(print (format-time-string "%T"))
+(sleep-only 5)
+(print (format-time-string "%T"))
+#+end_src
+
+#+RESULTS:
+:
+: "21:33:11"
+:
+: "21:33:13"
+:
+: "21:33:18"
